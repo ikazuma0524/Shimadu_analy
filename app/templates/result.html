@@ -1,49 +1,88 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="ja">
 <head>
-    <title>Analysis Result</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>分析結果</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .result-container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            padding: 30px;
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+        h1 {
+            color: #007bff;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.2);
+        }
+    </style>
 </head>
 <body>
-    <h1>Time-Analog1</h1>
-    <img src="{{ image_path }}" alt="Time-Analog1">
-    <br>
-    
+    <div class="container result-container">
+        <h1 class="text-center mb-4">分析結果</h1>
+        
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <h2>時間-アナログ1</h2>
+                <img src="{{ image_path }}" alt="時間-アナログ1" class="img-fluid">
+            </div>
+            <div class="col-md-6 mb-4">
+                <h2>時間-アナログ2</h2>
+                <img src="{{ image_path_2 }}" alt="時間-アナログ2" class="img-fluid">
+            </div>
+        </div>
 
-    <h1>Time-Analog2</h1>
-    <img src="{{ image_path_2 }}" alt="image_path_2 ">
-    <br>
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <h2>公称ひずみ(ゲージ)-公称応力</h2>
+                <img src="{{ image_path_3 }}" alt="公称ひずみ(ゲージ)-公称応力" class="img-fluid">
+            </div>
+            <div class="col-md-6 mb-4">
+                <h2>公称ひずみ(ストローク)-公称応力</h2>
+                <img src="{{ image_path_4 }}" alt="公称ひずみ(ストローク)-公称応力" class="img-fluid">
+            </div>
+        </div>
 
-    <h1>Nominal-strain(gage)-Nominal-stress</h1>
-    <img src="{{ image_path_3 }}" alt="image_path_3 ">
-    <br>
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <h2>真ひずみ(ゲージ)-真応力(ゲージ)</h2>
+                <img src="{{ image_path_5 }}" alt="真ひずみ(ゲージ)-真応力(ゲージ)" class="img-fluid">
+            </div>
+            <div class="col-md-6 mb-4">
+                <h2>真ひずみ(ストローク)-真応力(ストローク)</h2>
+                <img src="{{ image_path_6 }}" alt="真ひずみ(ストローク)-真応力(ストローク)" class="img-fluid">
+            </div>
+        </div>
 
-    <h1>Nominal-strain(steoke)-Nominal-stress</h1>
-    <img src="{{ image_path_4 }}" alt="image_path_4 ">
-    <br>
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <h2>log真ひずみ(ゲージ)-log真応力</h2>
+                <img src="{{ image_path_7 }}" alt="log真ひずみ(ゲージ)-log真応力" class="img-fluid">
+            </div>
+            <div class="col-md-6 mb-4">
+                <h2>log真ひずみ(ストローク)-log真応力(ストローク)</h2>
+                <img src="{{ image_path_8 }}" alt="log真ひずみ(ストローク)-log真応力(ストローク)" class="img-fluid">
+            </div>
+        </div>
 
-    <h1>True-strain(gage)-True-stress(gage)</h1>
-    <img src="{{ image_path_5 }}" alt="image_path_5 ">
-    <br>
+        <div class="text-center mt-4">
+            <a href="/" class="btn btn-primary btn-lg">別のファイルをアップロード</a>
+        </div>
+    </div>
 
-    <h1>True-strain(stroke)-True-stress(stroke)</h1>
-    <img src="{{ image_path_6 }}" alt="image_path_6 ">
-    <br>
-
-    <h1>log_True_strain(gage)-log_True_stress</h1>
-    <img src="{{ image_path_7 }}" alt="image_path_7 ">
-    <br>
-
-    <h1>log_True_strain(stroke)-log_True_stress(stroke)</h1>
-    <img src="{{ image_path_8 }}" alt="image_path_8 ">
-    <br>
-
-
-
-
-
-
-    <a href="/">Upload another file</a>
-
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -1,31 +1,106 @@
-<h1>実験10で楽しよう</h1>
-<form action="/upload" method="post" enctype="multipart/form-data">
-    <label for="material">Material:</label>
-    <select name="material">
-        <option value="Al">Al</option>
-        <option value="Mg">Mg</option>
-        <option value="Fe(水)">Fe1</option>
-        <option value="Fe(炉)">Fe2</option>
-        <option value="PET">PET</option>
-        <!-- 他のオプションも追加 -->
-    </select>
-    <label for="area">Area (mm²):</label>
-    <input type="text" name="area">
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>実験10 - 材料分析</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .content-container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            padding: 30px;
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+        h1, h2 {
+            color: #007bff;
+        }
+        .alert-custom {
+            background-color: #fff3cd;
+            border-color: #ffeeba;
+            color: #856404;
+        }
+    </style>
+</head>
+<body>
+    <div class="container content-container">
+        <h1 class="text-center mb-4">島津オートグラフSGS-X 10kN ひっぱり試験データ可視化</h1>
 
-    <label for="length">Length (mm):</label>
-    <input type="text" name="length">
+        <div class="alert alert-custom mb-4" role="alert">
+            <h4 class="alert-heading">概要</h4>
+            <p>特定のひっぱり試験機から得られるデータをアップロードすると、主要なグラフが出力されるようになっています。ソースコードは以下のGithubページから公開しているので、使用する際は計算の方法を確認した上で自己責任で利用してください。</p>
+        </div>
 
-    <label for="load0">load0:</label>
-    <input type="text" name="load0">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>データアップロード</h2>
+                <form action="/upload" method="post" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="material" class="form-label">Material:</label>
+                        <select name="material" class="form-select">
+                            <option value="Al">Al</option>
+                            <option value="Mg">Mg</option>
+                            <option value="Fe(水)">Fe1</option>
+                            <option value="Fe(炉)">Fe2</option>
+                            <option value="PET">PET</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="area" class="form-label">Area (mm²):</label>
+                        <input type="text" name="area" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="length" class="form-label">Length (mm):</label>
+                        <input type="text" name="length" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="load0" class="form-label">load0:</label>
+                        <input type="text" name="load0" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="distortion0" class="form-label">distortion0:</label>
+                        <input type="text" name="distortion0" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="distortiongaugecollection1" class="form-label">distortiongaugecollection1:</label>
+                        <input type="text" name="distortiongaugecollection1" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="file" class="form-label">ファイルをアップロード:</label>
+                        <input type="file" name="file" class="form-control">
+                    </div>
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary btn-lg">アップロード</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-6">
+                <h2>使い方と注意事項</h2>
+                <h3>使い方</h3>
+                <ol>
+                    <li>分析したい材料を選択します。</li>
+                    <li>必要なパラメータ（面積、長さなど）を入力します。</li>
+                    <li>分析したいデータファイルをアップロードします。(.slsx形式)</li>
+                    <li>「アップロード」ボタンをクリックして分析を開始します。</li>
+                    <li>結果ページで、生成されたグラフと分析結果を確認します。</li>
+                </ol>
+                <h3>注意事項</h3>
+                <ul>
+                    <li>入力するパラメータが正確であることを確認してください。</li>
+                    <li>アップロードするファイルは指定された形式（例：.xlsx）である必要があります。</li>
+                    <li>大きなファイルのアップロードには時間がかかる場合があります。</li>
+                    <li>個人情報や機密データを含むファイルをアップロードしないでください。</li>
+                    <li>結果の解釈には、材料科学の基本的な知識が必要です。</li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
-    
-    
-    <label for="distortion0 "> distortion0</label>
-    <input type="text" name="distortion0">
-    <label for="distortiongaugecollection1 ">distortiongaugecollection1:</label>
-    <input type="text" name="distortiongaugecollection1">
-
-    <input type="file" name="file">
-    <input type="submit" value="Upload">
-    
-</form>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
